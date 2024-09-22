@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#include "vcooley.c"
+
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
@@ -13,12 +15,7 @@
 #undef QUICK_TAP_TERM
 #define QUICK_TAP_TERM 50
 
-// home row mods (0 is inside of index, 1 is index, etc.)
-#define H0 HYPR_T
-#define H1 LSFT_T
-#define H2 LCTL_T
-#define H3 LALT_T
-#define H4 LGUI_T
+
 
 // USE THIS FOR NEW LAYERS
 // [_BLANK] = LAYOUT_5x7(
