@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMBO_ENABLE = yes
+COMBO_ENABLE = no
 EXTRAKEY_ENABLE = yes
 LTO_ENABLE = yes
 MOUSEKEY_ENABLE = yes
@@ -36,7 +36,7 @@ ifeq ($(strip $(ACHORDION_ENABLE)), yes)
 	SRC += features/achordion.c
 endif
 
-CUSTOM_SHIFT_KEYS_ENABLE ?= yes
+CUSTOM_SHIFT_KEYS_ENABLE ?= no
 ifeq ($(strip $(CUSTOM_SHIFT_KEYS_ENABLE)), yes)
 	OPT_DEFS += -DCUSTOM_SHIFT_KEYS_ENABLE
 	SRC += features/custom_shift_keys.c

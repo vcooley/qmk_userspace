@@ -2,19 +2,8 @@
 
 #include "vcooley.c"
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
-#define _QWERTY 0
-#define _FN     1
-#define _NUMPAD 2
-#define _SYM 3
-#define _GAME 4
-
 #undef QUICK_TAP_TERM
 #define QUICK_TAP_TERM 50
-
 
 
 // USE THIS FOR NEW LAYERS
@@ -41,7 +30,7 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [_QWERTY] = LAYOUT_5x7(
+    [BASE] = LAYOUT_5x7(
         // left hand
         KC_NO,  _______,       KC_1,    KC_2,    KC_3,   KC_4,   KC_5,
         KC_NO,  _______,       KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,
@@ -50,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                  KC_UP,  KC_DOWN,
 
                                                                     KC_ESC,   KC_SPC,
-                                                          LT(_FN, KC_MINS),   KC_TAB,
+                                                                   FUN_MIN,   KC_TAB,
                                                                    KC_PSCR,   KC_9,
 
         // right hand
@@ -61,11 +50,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         KC_LEFT, KC_RGHT,
 
              KC_BSPC,  OSM(MOD_LSFT),
-             KC_ENT,      MO(_SYM),
+             KC_ENT,      SYM_MO, 
              KC_LCTL,     KC_LALT
     ),
 
-    [_SYM] = LAYOUT_5x7(
+    [SYM] = LAYOUT_5x7(
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
@@ -86,12 +75,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,
         _______, _______
     ),
-    [_FN] = LAYOUT_5x7(
+    [FUN] = LAYOUT_5x7(
         // left hand
         QK_BOOT,   _______,     KC_F1,     KC_F2,     KC_F3,    KC_F4,    KC_F5,
         _______,   _______,   _______,   _______,  _______,   _______,  _______,
         _______,   _______,   KC_LCTL,   KC_LALT,  KC_LGUI,   KC_LSFT,  KC_HYPR,
-        TO(_GAME), _______,   _______,   _______,  _______,   _______,  _______,
+        TO(GAME), _______,   _______,   _______,  _______,   _______,  _______,
                    KC_MPRV,   KC_MNXT,
                                     _______, _______,
                                     _______, _______,
@@ -107,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              _______, KC_MSTP
     ),
 
-    [_NUMPAD] = LAYOUT_5x7(
+    [NUM] = LAYOUT_5x7(
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
@@ -128,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              _______, _______
 ),
 
-    [_GAME] = LAYOUT_5x7(
+    [GAME] = LAYOUT_5x7(
         // left hand
         KC_NO,KC_NO, KC_ESC,   KC_1,    KC_2,    KC_3,   KC_4,
         KC_NO,KC_NO, KC_TAB,   KC_Q,    KC_W,    KC_E,   KC_R,
@@ -137,18 +126,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                  KC_T,   KC_G,
                                                                     KC_LALT, KC_SPC,
                                                                     KC_B,    KC_TAB,
-                                                                    KC_PSCR, KC_5,
+                                                                    _______, KC_5,
 
         // right hand
-                      KC_6,    KC_7,    KC_8,     KC_9,     KC_0,     KC_GRV,     TG(_GAME),
-                      KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,    KC_NO,
-                H0(KC_H), H1(KC_J), H2(KC_K), H3(KC_L), H4(KC_SCLN),  KC_QUOT,    KC_NO,
-                      KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_RSFT), KC_NO,
-                                        KC_LEFT, KC_UP,
-
-             OSM(MOD_LSFT), LT(_SYM, KC_BSPC),
-             KC_ENT,  KC_PGDN,
-             KC_LCTL, KC_LALT
+                 _______,   _______,   _______,   _______,   _______,   _______,   TG(GAME),
+                 _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                 _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                 _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                                       _______,   _______,
+    _______, _______,
+    _______, _______,
+    _______, _______
     ),
 
 };
