@@ -10,15 +10,8 @@
 #define _SYM 3
 #define _GAME 4
 
-
 #undef QUICK_TAP_TERM
-#define QUICK_TAP_TERM 0
-
-// Some basic macros
-#define TASK   LCTL(LSFT(KC_ESC))
-#define TAB_R  LCTL(KC_TAB)
-#define TAB_L  LCTL(LSFT(KC_TAB))
-#define TAB_RO LCTL(LSFT(KC_T))
+#define QUICK_TAP_TERM 50
 
 // home row mods (0 is inside of index, 1 is index, etc.)
 #define H0 HYPR_T
