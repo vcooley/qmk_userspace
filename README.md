@@ -1,3 +1,5 @@
+A fork of Pascal Getreuer's keymap to let me use Achordian and experiment with additional features he's built.
+
 # Pascal Getreuer's QMK keymap
 
 (This is not an officially supported Google product.)
