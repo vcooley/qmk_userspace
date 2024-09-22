@@ -77,9 +77,9 @@ enum layers {
   GAME,
 };
 
-#define MAGIC QK_AREP
-
-
+enum custom_keycodes {
+  LLOCK = SAFE_RANGE,
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Tap-hold configuration (https://docs.qmk.fm/tap_hold)
@@ -97,8 +97,13 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
   // lead to missed triggers in fast typing. Here, returning 0 means we
   // instead want to "force hold" and disable key repeating.
   switch (keycode) {
+    case H0(KC_H):
+    case H1(KC_J):
+    case H2(KC_K):
+    case H3(KC_L):
+      return 120;
     default:
-      return 50; 
+      return 0;
   }
 }
 

@@ -2,10 +2,6 @@
 
 #include "vcooley.c"
 
-#undef QUICK_TAP_TERM
-#define QUICK_TAP_TERM 50
-
-
 // USE THIS FOR NEW LAYERS
 // [_BLANK] = LAYOUT_5x7(
 //     // left hand
