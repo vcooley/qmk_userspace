@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         KC_LEFT, KC_RGHT,
 
              KC_BSPC,  OSM(MOD_LSFT),
-             KC_ENT,      SYM_MO, 
+             KC_ENT,      OSL(SYM),
              KC_LCTL,     KC_LALT
     ),
 
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  _______,   _______,   _______,
                           KC_MUTE,   KC_VOLD,   KC_VOLU,   _______,   _______,   _______,   _______,
                                                 KC_MPRV,   KC_MNXT,
-             KC_BSPC, KC_LSFT,
+             KC_DEL,  KC_LSFT,
              KC_ENT,  KC_MPLY,
              _______, KC_MSTP
     ),
