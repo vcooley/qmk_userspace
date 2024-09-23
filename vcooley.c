@@ -58,12 +58,19 @@
 #include "features/sentence_case.h"
 #endif
 
-// Home row mods (0 is inside of index, 1 is index, etc.)
-#define H0 HYPR_T
-#define H1 LSFT_T
-#define H2 LCTL_T
-#define H3 LALT_T
-#define H4 LGUI_T
+// Home row mods (L0 is inside of left index, L1 is left index, etc.)
+#define HL0 HYPR_T
+#define HL1 LSFT_T
+#define HL2 LCTL_T
+#define HL3 LALT_T
+#define HL4 LGUI_T
+// right hand
+#define HR0 HYPR_T
+#define HR1 RSFT_T
+#define HR2 RCTL_T
+#define HR3 RALT_T
+#define HR4 RGUI_T
+
 // Layer switches
 #define FUN_MIN LT(FUN, KC_MINS)
 #define SYM_MO  MO(SYM)
@@ -97,10 +104,10 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
   // lead to missed triggers in fast typing. Here, returning 0 means we
   // instead want to "force hold" and disable key repeating.
   switch (keycode) {
-    case H0(KC_H):
-    case H1(KC_J):
-    case H2(KC_K):
-    case H3(KC_L):
+    case HR0(KC_H):
+    case HR1(KC_J):
+    case HR2(KC_K):
+    case HL3(KC_L):
       return 120;
     default:
       return 0;
@@ -119,6 +126,12 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboards are split.
   uint8_t row = other_record->event.key.row % (MATRIX_ROWS / 2);
   if (!(1 <= row && row <= 3)) { return true; }
+  
+  switch (tap_hold_keycode) {
+    // I have a habit of using my right pinky for some vim shortcuts like C-U, C-Y
+    case HR4(KC_SCLN):
+      return true;
+  }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
@@ -126,7 +139,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
     default:
-      return 500;
+      return 300;
   }
 }
 
