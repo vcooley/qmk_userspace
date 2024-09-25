@@ -93,6 +93,8 @@ enum custom_keycodes {
 ///////////////////////////////////////////////////////////////////////////////
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
+    case MT(MOD_LCTL, KC_ESC):
+      return TAPPING_TERM - 60;
     default:
       return TAPPING_TERM;
   }
@@ -138,8 +140,11 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
+    // rolling escape is rare
+    case MT(MOD_LCTL, KC_ESC):
+      return 50;
     default:
-      return 300;
+      return 250;
   }
 }
 
