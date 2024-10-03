@@ -109,7 +109,7 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
     case HR0(KC_H):
     case HR1(KC_J):
     case HR2(KC_K):
-    case HL3(KC_L):
+    case HR3(KC_L):
       return 120;
     default:
       return 0;
