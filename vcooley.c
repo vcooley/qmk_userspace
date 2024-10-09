@@ -72,7 +72,6 @@
 #define HR4 RGUI_T
 
 // Layer switches
-#define FUN_MIN LT(FUN, KC_MINS)
 #define SYM_MO  MO(SYM)
 #define TO_GAME TO(GAME)
 

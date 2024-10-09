@@ -34,8 +34,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,  OSM(MOD_LSFT), KC_Z,    KC_X,    KC_C,   KC_V, KC_B,
                                                  KC_UP,  KC_DOWN,
 
-                                                       MT(MOD_LCTL, KC_ESC),   KC_SPC,
-                                                                   FUN_MIN,   KC_TAB,
+                                                       MT(MOD_LCTL, KC_ESC),   LT(FUN, KC_SPC),
+                                                                   KC_MINS,   KC_TAB,
                                                                    KC_LCTL,   KC_LALT,
 
         // right hand
@@ -45,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_RSFT), KC_NO,
                                         KC_LEFT, KC_RGHT,
 
-             KC_BSPC,  OSM(MOD_LSFT),
-             KC_ENT,        OSL(SYM),
+             LT(SYM, KC_BSPC),  OSM(MOD_LSFT),
+             KC_ENT,         KC_DEL,
              KC_DEL,         KC_LALT
     ),
 
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        _______,   KC_TILD,   KC_PLUS,   KC_LBRC,   KC_LCBR,   KC_LPRN,  KC_MINS,
+        _______,   _______,   KC_TILD,   KC_LBRC,   KC_LCBR,   KC_LPRN,  KC_PLUS,
         _______,   _______,   KC_EXLM,   KC_AT,     KC_HASH,   KC_DLR,   KC_PERC,
                                          _______,   _______,
                                                                     KC_MINS, KC_UNDS,
