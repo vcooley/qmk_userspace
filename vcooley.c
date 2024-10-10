@@ -93,6 +93,7 @@ enum custom_keycodes {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case MT(MOD_LCTL, KC_ESC):
+    case LT(SYM, KC_BSPC):
       return TAPPING_TERM - 60;
     default:
       return TAPPING_TERM;
@@ -110,6 +111,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
     case HR2(KC_K):
     case HR3(KC_L):
       return 120;
+    case LT(SYM, KC_BSPC):
+      return 100;
     default:
       return 0;
   }
@@ -139,8 +142,9 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
-    // rolling escape is rare
+    // Thumb keys can handle lower timeouts
     case MT(MOD_LCTL, KC_ESC):
+    case LT(SYM, KC_BSPC):
       return 50;
     default:
       return 250;
@@ -204,7 +208,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
   const uint8_t mods = get_mods();
   const uint8_t all_mods = (mods | get_weak_mods()
-#ifndef NO_ACTION_ONESHOT
+#ifdef NO_ACTION_ONESHOT
                         | get_oneshot_mods()
 #endif  // NO_ACTION_ONESHOT
   );
