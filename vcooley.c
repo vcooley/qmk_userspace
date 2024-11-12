@@ -94,7 +94,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case MT(MOD_LCTL, KC_ESC):
     case LT(SYM, KC_BSPC):
-      return TAPPING_TERM - 60;
+    case LT(FUN, KC_SPC):
+      return TAPPING_TERM - 100;
     default:
       return TAPPING_TERM;
   }
@@ -145,7 +146,8 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     // Thumb keys can handle lower timeouts
     case MT(MOD_LCTL, KC_ESC):
     case LT(SYM, KC_BSPC):
-      return 50;
+    case LT(FUN, KC_SPC):
+      return 30;
     default:
       return 250;
   }
