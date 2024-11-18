@@ -94,9 +94,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case MT(MOD_LCTL, KC_ESC):
     case LT(SYM, KC_BSPC):
-      return TAPPING_TERM - 100;
     case LT(FUN, KC_SPC):
-      return TAPPING_TERM - 80;
+      return TAPPING_TERM - 100;
     default:
       return TAPPING_TERM;
   }
@@ -117,6 +116,17 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
       return 100;
     default:
       return 0;
+  }
+}
+
+bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+  // In order to have a low tapping term, it's helpful to enable retro tap for
+  // the space key as I often unintentionally surpass the hold timeout on it.
+  switch (keycode) {
+    case LT(FUN, KC_SPC):
+      return true;
+    default:
+      return false;
   }
 }
 
